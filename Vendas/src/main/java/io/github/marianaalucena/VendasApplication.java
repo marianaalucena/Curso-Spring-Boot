@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootApplication
 public class VendasApplication {
@@ -36,10 +37,12 @@ public class VendasApplication {
             p.setDataPedido(LocalDate.now());
             p.setTotal(BigDecimal.valueOf(100));
             pedidos.save(p);
+//
+//            Cliente cliente = clientes.findClienteFetchPedidos(mari.getId());
+//            System.out.println(cliente);
+//            System.out.println(cliente.getPedidos());
 
-            Cliente cliente = clientes.findClienteFetchPedidos(mari.getId());
-            System.out.println(cliente);
-            System.out.println(cliente.getPedidos());
+            pedidos.findByCliente(mari).forEach(System.out::println);
 
         };
     }
