@@ -17,8 +17,8 @@ public class VendasApplication {
     public CommandLineRunner init(@Autowired Clientes clientes){
         return args -> {
             System.out.println("Salvando clientes");
-            clientes.salvar(new Cliente(1, "Mariana"));
-            clientes.salvar(new Cliente(2, "Pedro"));
+            clientes.salvar(new Cliente("Mariana"));
+            clientes.salvar(new Cliente("Pedro"));
 
             List<Cliente> all = clientes.obterTodos();
             all.forEach(System.out::println);
@@ -36,7 +36,7 @@ public class VendasApplication {
             all.forEach(System.out::println);
 
             System.out.println("Deletando cliente");
-            clientes.deletar(clientes.buscarPorNome("Pe").get(0).getId());
+          //  clientes.deletar(clientes.buscarPorNome("Pe").get(0).getId());
 
             all = clientes.obterTodos();
             all.forEach(System.out::println);
