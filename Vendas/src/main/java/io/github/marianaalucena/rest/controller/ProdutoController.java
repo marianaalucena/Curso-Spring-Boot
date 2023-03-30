@@ -12,11 +12,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/produtos")
-public class ProdutosController {
+public class ProdutoController {
 
     private Produtos produtos;
 
-    public ProdutosController(Produtos produtos){
+    public ProdutoController(Produtos produtos){
         this.produtos = produtos;
     }
 
@@ -35,7 +35,7 @@ public class ProdutosController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.NO_CONTENT) //204
     public void delete(@PathVariable Integer id){
         produtos.findById(id)
                 .map( produto -> {
@@ -46,7 +46,7 @@ public class ProdutosController {
     }
 
     @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.NO_CONTENT) //204
     public void update(@PathVariable Integer id, @RequestBody Produto produto){
         produtos.findById(id)
                 .map(produtoExistente -> {
