@@ -3,13 +3,11 @@ package io.github.marianaalucena.rest.controller;
 import io.github.marianaalucena.domain.entity.ItemPedido;
 import io.github.marianaalucena.domain.entity.Pedido;
 import io.github.marianaalucena.domain.enums.StatusPedido;
-import io.github.marianaalucena.domain.repository.Pedidos;
 import io.github.marianaalucena.rest.dto.AtualizacaoStatusPedidoDTO;
 import io.github.marianaalucena.rest.dto.InformacoesItemPedidoDTO;
 import io.github.marianaalucena.rest.dto.InformacoesPedidoDTO;
 import io.github.marianaalucena.rest.dto.PedidoDTO;
 import io.github.marianaalucena.service.PedidoService;
-import jdk.jshell.Snippet;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
@@ -22,11 +20,11 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/pedidos")
-public class PedidosController {
+public class PedidoController {
 
     private PedidoService service;
 
-    public PedidosController(PedidoService service){
+    public PedidoController(PedidoService service){
         this.service = service;
     }
 
