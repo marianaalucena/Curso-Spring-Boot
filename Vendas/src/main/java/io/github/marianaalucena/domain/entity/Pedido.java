@@ -1,5 +1,6 @@
 package io.github.marianaalucena.domain.entity;
 
+import io.github.marianaalucena.domain.enums.StatusPedido;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -32,5 +33,8 @@ public class Pedido {
     @OneToMany(mappedBy = "pedido")
     private List<ItemPedido> itens;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private StatusPedido status;
 
 }
